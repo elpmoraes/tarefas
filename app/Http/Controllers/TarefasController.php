@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Tarefas;
 class TarefasController extends Controller
 {
     /**
@@ -13,10 +13,7 @@ class TarefasController extends Controller
      */
     public function index()
     {
-        $tarefas = [ 
-                        ['id'=>1, 'nome'=> 'abacate'],
-                        ['id'=>2, 'nome'=>'abacaxi']
-                    ];
+        $tarefas = Tarefas::all();
         
         return view('tarefas.index')->with('tarefas', $tarefas);
     }
@@ -28,6 +25,7 @@ class TarefasController extends Controller
      */
     public function create()
     {
+        
         return view('tarefas.create');
     }
 
@@ -39,8 +37,11 @@ class TarefasController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request->all();
-        $nome = $request->nome;
+        $tarefa = new Tarefas();
+        $tarefa->titulo = $request->input('titulo');
+        $tarefa->descricao = $request->input('descricao');
+        $tarefa->finalizado = 0;
+        $tarefa->save();
  
         return redirect()->route('tarefas.index');
     }
@@ -53,7 +54,8 @@ class TarefasController extends Controller
      */
     public function show($id)
     {
-        return view('tarefas.show');
+        $tarefa = Tarefas::find($id);
+        return view('tarefas.show')->with('tarefa', $tarefa);
     }
 
     /**
