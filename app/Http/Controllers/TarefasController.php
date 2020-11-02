@@ -65,8 +65,9 @@ class TarefasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
         $tarefa = Tarefas::find($id);
+  
         if(isset($tarefa)){
             return view('tarefas.edit')->with('tarefa',$tarefa);
         }else
@@ -83,6 +84,22 @@ class TarefasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tarefa = Tarefas::find($id);
+       
+        if(isset($tarefa)){
+           
+            $tarefa->titulo = $request->input('titulo');
+
+            $tarefa->descricao = $request->input('descricao');
+            if($request->has('finalizado')) {
+                $tarefa->finalizado = 1;
+            }else{
+                $tarefa->finalizado = 0;
+            }
+            $tarefa->save();
+            return \redirect('/tarefas/'.$id);
+        }else
+        return \redirect('google.com');
         
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\TarefasController;
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('listar', [PrincipalController::class,'listarTarefas']);
 
 Route::resource('tarefas', TarefasController::class);
