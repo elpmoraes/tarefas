@@ -53,7 +53,7 @@ class TarefasController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('tarefas.show');
     }
 
     /**
@@ -64,7 +64,7 @@ class TarefasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('tarefas.edit');
     }
 
     /**
