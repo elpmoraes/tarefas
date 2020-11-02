@@ -66,7 +66,12 @@ class TarefasController extends Controller
      */
     public function edit($id)
     {
-        return view('tarefas.edit');
+        $tarefa = Tarefas::find($id);
+        if(isset($tarefa)){
+            return view('tarefas.edit')->with('tarefa',$tarefa);
+        }else
+        return \redirect('/tarefas');
+        
     }
 
     /**
@@ -78,7 +83,7 @@ class TarefasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
