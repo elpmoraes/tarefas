@@ -13,9 +13,12 @@ class TarefasController extends Controller
      */
     public function index()
     {
-        $tarefas = Array('abacate', 'abacaxi');
-        $iten = 'abc';
-        return view('tarefas.index', compact(['tarefas']));
+        $tarefas = [ 
+                        ['id'=>1, 'nome'=> 'abacate'],
+                        ['id'=>2, 'nome'=>'abacaxi']
+                    ];
+        
+        return view('tarefas.index')->with('tarefas', $tarefas);
     }
 
     /**
@@ -25,7 +28,7 @@ class TarefasController extends Controller
      */
     public function create()
     {
-        //
+        return view('tarefas.create');
     }
 
     /**
@@ -36,7 +39,10 @@ class TarefasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->all();
+        $nome = $request->nome;
+ 
+        return redirect()->route('tarefas.index');
     }
 
     /**

@@ -1,7 +1,9 @@
+<a href="{{ route('tarefas.create')}}">NOVA TAREFA</a>
+
 <ol>
         @foreach ($tarefas as $tarefa)
         <li>
-            {{$tarefa}}   
+            {{$tarefa['nome']}}   |  <a href="{{ route('tarefas.edit', $tarefa['id']) }}">Editar</a>
         </li>
         @endforeach
 
