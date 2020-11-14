@@ -76,7 +76,7 @@ class TarefasController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage.s
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id

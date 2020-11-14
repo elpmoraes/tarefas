@@ -1,13 +1,46 @@
-<a href="{{ route('tarefas.create')}}">NOVA TAREFA</a>
+@extends('layouts.principal')
+        <script src="{{asset('js/app.js')}}"></script>
 
-<ol>
+@section('menu')
+
+@section('content')
+
+<h1>Lista de Tarefas</h1>
+<table id="editavel" class="table">
+      <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Título</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+
         @foreach ($tarefas as $tarefa)
-        <li>
-            {{$tarefa['titulo']}}   | <a href="{{ route('tarefas.show', $tarefa['id']) }}">Detalhar</a> 
-                                    | <a href="{{ route('tarefas.edit', $tarefa['id']) }}">Editar</a> 
+    <tr>
+     <td>  {{$tarefa['id']}} </td>
+          <td>  {{$tarefa['titulo']}} </td>
+          <td>  {{$tarefa['descricao']}} </td>
+          <td>  {{$tarefa['finalizado']}} </td>
+     <td>
+                  <a href="#" class="xedit">DD</a>
 
- 
-        </li>
+         <a href="{{ route('tarefas.show', $tarefa['id']) }}">Detalhar</a>
+          |
+          <a href="{{ route('tarefas.edit', $tarefa['id']) }}">Editar</a>
+     </td>
+    </tr>
         @endforeach
 
-</ol>
+
+</table>
+@endsection
+
+
+<script>
+
+
+
+
+</script>
