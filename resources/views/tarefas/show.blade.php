@@ -12,8 +12,11 @@
   <h5 class="card-header">{{$tarefa['titulo']}} </h5>
   <div class="card-body">
    <p class="card-text">{{$tarefa['descricao']}} </p>
-    <a href="#" class="btn btn-primary">{{$tarefa['finalizado']}}</a>
+
+    <input type="checkbox" {{ $tarefa['finalizado'] ? 'checked' : '' }} class="form-check-input" name="finalizado" id="finalizado">
+    <label class="form-check-label" for="finalizado">Finalizado</label>
   </div>
+</div>
 </div>
 
 

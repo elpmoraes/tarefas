@@ -2,3 +2,16 @@ body{
     height: 70%;
 
 }
+
+.ativo{
+    background-color: #0DA921FF;
+}
+
+.inativo{
+    background-color: #F35E4CFF;
+
+
+}
+
+
+

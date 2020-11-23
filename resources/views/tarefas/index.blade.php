@@ -1,6 +1,25 @@
 @extends('layouts.principal')
         <script src="{{asset('js/app.js')}}"></script>
 
+        <script>
+          $(document).ready(function(){
+
+
+          $('.ativo, .inativo').click(function(){
+              //$('.xedit').
+            $(this).toggleClass("ativo");
+            $(this).toggleClass("inativo");
+            });
+
+
+
+
+
+
+          })
+
+        </script>
+
 @section('menu')
 
 @section('content')
@@ -22,10 +41,12 @@
      <td>  {{$tarefa['id']}} </td>
           <td>  {{$tarefa['titulo']}} </td>
           <td>  {{$tarefa['descricao']}} </td>
+
           <td>  {{$tarefa['finalizado']}} </td>
      <td>
-                  <a href="#" class="xedit">DD</a>
-
+          {{$tarefa['finalizado'] ?  'ae' : 'falsao'}}
+         <a href="#" class="ativo">Finalizado</a>
+          <a href="#" class="inativo">Em Andamento</a>
          <a href="{{ route('tarefas.show', $tarefa['id']) }}">Detalhar</a>
           |
           <a href="{{ route('tarefas.edit', $tarefa['id']) }}">Editar</a>
